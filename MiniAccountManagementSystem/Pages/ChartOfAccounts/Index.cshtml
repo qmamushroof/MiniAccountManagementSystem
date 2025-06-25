@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Chart of Accounts";
+}
+
+<h2>Chart of Accounts</h2>
+
+<ul>
+    @foreach (var account in Model.AccountTree)
+    {
+        <li>
+            @account.AccountName (@account.AccountType)
+            @if (account.Children.Any())
+            {
+                <ul>
+                    @foreach (var child in account.Children)
+                    {
+                        <li>@child.AccountName (@child.AccountType)</li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+</ul>
