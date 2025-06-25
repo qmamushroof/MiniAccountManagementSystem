@@ -6,7 +6,8 @@ using MiniAccountManagementSystem.Services;
 
 namespace MiniAccountManagementSystem.Pages.ChartOfAccounts
 {
-    [Authorize(Roles = "Admin,Accountant,Viewer")]
+    //[Authorize(Roles = "Admin,Accountant,Viewer")]
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly AccountService _accountService;

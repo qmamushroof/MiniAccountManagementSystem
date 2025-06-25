@@ -54,9 +54,9 @@ namespace MiniAccountManagementSystem.Services
 
         public async Task<List<ChartOfAccount>> GetAllAccounts()
         {
-            var dt = await _spExecutor.ExecuteDataTableAsync("SELECT * FROM ChartOfAccounts"); // Simple raw SQL query
-            var list = new List<ChartOfAccount>();
+            var dt = await _spExecutor.ExecuteDataTableAsync("sp_GetChartOfAccounts"); // Call the stored procedure
 
+            var list = new List<ChartOfAccount>();
             foreach (DataRow row in dt.Rows)
             {
                 list.Add(new ChartOfAccount

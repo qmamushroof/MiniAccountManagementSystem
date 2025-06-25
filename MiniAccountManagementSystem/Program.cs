@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MiniAccountManagementSystem.Data;
 using MiniAccountManagementSystem.Models;
+using MiniAccountManagementSystem.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,14 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddDefaultTokenProviders()
 .AddDefaultUI();
 
+
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<StoredProcedureExecutor>();
+
+builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<ExportService>();
+builder.Services.AddScoped<VoucherService>();
 
 var app = builder.Build();
 
